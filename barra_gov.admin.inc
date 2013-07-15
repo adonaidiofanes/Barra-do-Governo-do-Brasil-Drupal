@@ -28,18 +28,26 @@ function barra_gov_admin_settings(){
      '#title' => t('Configuração Visual'),
    );
   
+  $options = array(
+    /*
+    t('Verde') => t('Verde'),
+    t('Cinza') => t('Cinza'),
+    t('Preto') => t('Preto'),
+    t('Azul') => t('Azul')*/
+      
+    t('Verde'),
+    t('Cinza'),
+    t('Preto'),
+    t('Azul')
+  );
+  
   $form['barra_gov']['barra_gov_color'] = array(
       '#type' => 'select',
       '#title' => t('Cor de Fundo'),
       '#description' => t('Escolha uma das opções para cor de fundo da barra.'),
-      '#options' => array(
-          t('Verde'),
-          t('Cinza'),
-          t('Preto'),
-          t('Azul'),
-      ),
-      '#default_value' => 'Azul',
-      //'#default_value' => variable_get('barra_gov_node_types', array('page')),
+      '#options' => $options,
+      '#required' => TRUE,
+      '#default_value' => variable_get('barra_gov_cor'),
   );
   
   /*$form['barra_gov_deletion'] = array(
@@ -75,8 +83,8 @@ function barra_gov_admin_settings_validate($form, &$form_state) {
   $limit = $form_state['values']['barra_gov_limit_per_node'];
   if (!is_numeric($limit)) {
     form_set_error('barra_gov_limit_per_node', t('Please enter number.'));
-  }
-  */
+  }*/
+ 
 }
 
 /**
@@ -126,5 +134,28 @@ function barra_gov_admin_settings_submit($form, $form_state){
         
       } // fim de campo de anotações não existia; deve ser adicionado
     } // fim do if
+  }
+  
+  variable_set('barra_gov_cor', '#FFFFFF');
+  $g = variable_get('barra_gov_cor');
+  
+  watchdog("barra_gov_cor", 'cor' . $g);
+  */
+  
+   /*if (intval($form_state['values']['time'])) {
+    variable_set('mymodule_seconds_to_wait', intval($form_state['values']['time']));
+    
+    drupal_set_message(t('Your configuration has been saved.'));
+    }
+
+  foreach($form_state['values'] as $key => $value){
+    
   }*/
+  
+  drupal_set_message($form['barra_gov']['barra_gov_color']['#value']);
+ 
+
+  dpm($form);
+  
+  
 }

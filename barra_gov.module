@@ -7,11 +7,6 @@
 * so that authenticated users may make notes.
 */
 
-function barra_gov_output(){
-	$var = 'teste123';
-        return $var;
-}
-
 /**
 * Implements hook_node_load()
 */
@@ -77,8 +72,8 @@ function barra_gov_menu(){
   );
   
   $items['admin/config/barra_gov/settings'] = array(
-      'title' => 'Configurações de Barra do Governo do Brasil',
-      'description' => 'Alerta o comportamento de Barra do Governo do Brasil',
+      'title' => 'Configurações visuais',
+      'description' => 'Alterar o comportamento visual de Barra do Governo do Brasil',
       'page callback' => 'drupal_get_form',
       'page arguments' => array('barra_gov_admin_settings'),
       'access arguments' => array('administer site configuration'),
@@ -88,4 +83,6 @@ function barra_gov_menu(){
   
   return $items;  
 }
+
+
 

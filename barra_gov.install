@@ -8,3 +8,9 @@
 /**
 * Implements hook_uninstall()
 */
+function barra_gov_uninstall(){
+  watchdog('Barra do Governo do Brasil', "Uninstalling module and deleting fields");
+  
+  variable_del('barra_gov_cor');
+  
+}
