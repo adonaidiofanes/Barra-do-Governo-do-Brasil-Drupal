@@ -24,7 +24,7 @@ function barra_gov_node_load($nodes, $types) {
     if ($user->uid != $node->uid) {
       unset($node->annotation);
     }
-  }*/
+  } ** */
   
 	drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-blue.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
 	
