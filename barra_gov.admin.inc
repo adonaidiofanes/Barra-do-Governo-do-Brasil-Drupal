@@ -23,8 +23,13 @@ function barra_gov_admin_settings(){
     $options[$node_type->type] = $node_type->name;
   }*/
   
-  $form['barra_gov_node_types'] = array(
-      '#type' => 'checkboxes',
+  $form['barra_gov'] = array(
+     '#type' => 'fieldset',
+     '#title' => t('Configuração Visual'),
+   );
+  
+  $form['barra_gov']['barra_gov_color'] = array(
+      '#type' => 'select',
       '#title' => t('Cor de Fundo'),
       '#description' => t('Escolha uma das opções para cor de fundo da barra.'),
       '#options' => array(
