@@ -24,6 +24,9 @@
 #barra-brasil .barra ul li {
     float: left;
     padding-left: 25px;
+    margin: 0; 
+    padding: 0; 
+    list-style: none;
 }
 
 #barra-brasil .ai {

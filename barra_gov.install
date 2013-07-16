@@ -3,7 +3,9 @@
 /**
 * Implements hook_install()
 */
-
+function barra_gov_install(){
+  variable_set('barra_gov_cor', 'verde');
+}
 
 /**
 * Implements hook_uninstall()
