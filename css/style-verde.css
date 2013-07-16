@@ -33,7 +33,7 @@
     display: block;
     width: 161px;
     height: 28px;
-    text-indent: -1000px;
+    text-indent: -9999999px;
     background: #00500F url(../images/ai.png) no-repeat 0 4px;
     text-decoration: none;
     font-size:1px;
@@ -43,7 +43,7 @@
     display: block;
     width: 108px;
     height: 28px;
-    text-indent: -99999px;
+    text-indent: -9999999px;
     background: #00500F url(../images/brasil.png) no-repeat 0 4px;
     text-decoration: none;
     font-size:1px;

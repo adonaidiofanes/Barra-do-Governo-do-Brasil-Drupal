@@ -8,43 +8,28 @@
 */
 
 /**
-* Implements hook_node_load()
-*/
-function barra_gov_node_load($nodes, $types) {
-  $color = variable_get('barra_gov_color');
-  drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-' . $color . '.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
-  
-}
-
-/**
  * Implements hook_page_build().
  */
 function barra_gov_page_build(&$page) {
   
-  // For some reason with Overlay enabled we get an empty $page, so just fail this case.
-  // TODO: traduzir - No meu caso o front page nao tem content
-  if (!isset($page['content']) && ( !drupal_is_front_page() ) ) {
-    return;
-  }
+  $color = variable_get('barra_gov_color');
+  drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-' . $color . '.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
 
-  // We are on a node detail page.
-  if ($node = menu_get_object('node', 1) && arg(2) == NULL) {
-    // Force to rebuild the sorting
-    $page['page_top']['#sorted'] = FALSE;
+  // Force to rebuild the sorting
+  $page['page_top']['#sorted'] = FALSE;
+
+  $page['page_top']['barra_gov'] = array(
+      '#markup' => '<!-- Barra do Governo  -->
+      <div id="barra-brasil">
+          <div class="barra">
+              <ul>
+                  <li><a href="http://www.acessoainformacao.gov.br" class="ai" title="Acesso à informação">www.sic.gov.br</a></li>
+                  <li><a href="http://www.brasil.gov.br" class="brasilgov" title="Portal de Estado do Brasil">www.brasil.gov.br</a></li>
+              </ul>
+          </div>
+      </div>',
+  );
     
-    $page['page_top'] = array(
-        '#markup' => '<!-- Barra do Governo  -->
-        <div id="barra-brasil">
-            <div class="barra">
-                <ul>
-                    <li><a href="http://www.acessoainformacao.gov.br" class="ai" title="Acesso à informação">www.sic.gov.br</a></li>
-                    <li><a href="http://www.brasil.gov.br" class="brasilgov" title="Portal de Estado do Brasil">www.brasil.gov.br</a></li>
-                </ul>
-            </div>
-        </div>',
-    );
-    
-  }
 }
 
 /*
@@ -74,3 +59,4 @@ function barra_gov_menu(){
   
   return $items;  
 }
+
