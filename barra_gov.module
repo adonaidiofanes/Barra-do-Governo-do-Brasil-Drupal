@@ -11,18 +11,9 @@
 * Implements hook_node_load()
 */
 function barra_gov_node_load($nodes, $types) {
-  /*
-  global $user;
-  // Check to see if the person viewing the node is the author. If not then
-  // hide the annotation.
-  foreach ($nodes as $node) {
-    if ($user->uid != $node->uid) {
-      unset($node->annotation);
-    }
-  } ** */
+  $color = variable_get('barra_gov_color');
+  drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-' . $color . '.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
   
-	drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-blue.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
-	
 }
 
 /**
