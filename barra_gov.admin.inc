@@ -2,11 +2,10 @@
 
 /**
  * @file
- * callbacks da página de administração para o módulo Barra do Governo do Brasil.
+ * Menu builder functions for Barra do Governo do Brasil. 
  */
 
 /**
- * Construtor de formulário. Configura anotações.
  * 
  * @ingroup forms
  * @see system_settings_form().
@@ -54,13 +53,8 @@ function barra_gov_admin_settings_validate($form, &$form_state) {
  */
 function barra_gov_admin_settings_submit($form, $form_state){
   
-  //drupal_set_message($form['barra_gov']['barra_gov_color']['#value']);
-  
   variable_set('barra_gov_cor', $form['barra_gov']['barra_gov_color']['#value']);
   
-  drupal_set_message( variable_get('barra_gov_cor') );
- 
-  //dpm($form);
-  
+  drupal_set_message( t('The visual configuration was set to ') . variable_get('barra_gov_cor') . '.' );
   
 }

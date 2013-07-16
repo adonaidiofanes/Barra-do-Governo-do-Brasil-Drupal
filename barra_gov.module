@@ -74,6 +74,3 @@ function barra_gov_menu(){
   
   return $items;  
 }
-
-
-
