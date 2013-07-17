@@ -4,7 +4,7 @@
 * Implements hook_install()
 */
 function barra_gov_install(){
-  variable_set('barra_gov_cor', 'verde');
+  variable_set('barra_gov_color', 'verde');
 }
 
 /**
@@ -13,6 +13,19 @@ function barra_gov_install(){
 function barra_gov_uninstall(){
   watchdog('Barra do Governo do Brasil', "Uninstalling module and deleting fields");
   
-  variable_del('barra_gov_cor');
+  variable_del('barra_gov_color');
+  
+  cache_clear_all('variables', 'cache_bootstrap');
   
 }
+
+/*
+  $result = db_select('variable', 'v')
+    ->fields('v', array('name'))
+    ->condition('name', 'easy_social_%', '=')
+    ->execute();
+
+
+  foreach ($result as $row) {
+    variable_del($row->name);
+  }*/

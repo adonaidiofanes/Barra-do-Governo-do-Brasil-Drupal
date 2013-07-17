@@ -7,12 +7,19 @@
 * so that authenticated users may make notes.
 */
 
+/*
+ * Implements hook_enable()
+ */
+function barra_gov_enable(){
+  drupal_set_message($message = t('The "Barra do Governo do Brasil"  module was successfully enabled.'), $type = 'status');
+}
 /**
  * Implements hook_page_build().
  */
 function barra_gov_page_build(&$page) {
   
   $color = variable_get('barra_gov_color');
+  
   drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-' . $color . '.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
 
   // Force to rebuild the sorting
@@ -23,8 +30,8 @@ function barra_gov_page_build(&$page) {
       <div id="barra-brasil">
           <div class="barra">
               <ul>
-                  <li><a href="http://www.acessoainformacao.gov.br" class="ai" title="Acesso à informação">www.sic.gov.br</a></li>
-                  <li><a href="http://www.brasil.gov.br" class="brasilgov" title="Portal de Estado do Brasil">www.brasil.gov.br</a></li>
+                  <li><a href="http://www.acessoainformacao.gov.br" class="ai" title="Acesso à informação" target="_blank">www.sic.gov.br</a></li>
+                  <li><a href="http://www.brasil.gov.br" class="brasilgov" title="Portal de Estado do Brasil" target="_blank">www.brasil.gov.br</a></li>
               </ul>
           </div>
       </div>',

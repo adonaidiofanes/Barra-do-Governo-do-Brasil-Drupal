@@ -33,7 +33,7 @@ function barra_gov_admin_settings(){
       '#description' => t('Escolha uma das opções para cor de fundo da barra.'),
       '#options' => $options,
       '#required' => TRUE,
-      '#default_value' => variable_get('barra_gov_cor'),
+      '#default_value' => variable_get('barra_gov_color'),
   );
   
   $form['#submit'][] = 'barra_gov_admin_settings_submit';
@@ -42,19 +42,12 @@ function barra_gov_admin_settings(){
 }
 
 /**
- * Validate annotation settings submission.
- */
-function barra_gov_admin_settings_validate($form, &$form_state) {
-
-}
-
-/**
  * barra_gov_admin_settings_validate
  */
 function barra_gov_admin_settings_submit($form, $form_state){
   
-  variable_set('barra_gov_cor', $form['barra_gov']['barra_gov_color']['#value']);
+  variable_set('barra_gov_color', $form['barra_gov']['barra_gov_color']['#value']);
   
-  drupal_set_message( t('The visual configuration was set to ') . variable_get('barra_gov_cor') . '.' );
+  drupal_set_message( t('The visual configuration was set to ') . variable_get('barra_gov_color') . '.' );
   
 }
