@@ -15,22 +15,22 @@ function barra_gov_admin_settings(){
   
   $form['barra_gov'] = array(
      '#type' => 'fieldset',
-     '#title' => t('Configuração Visual'),
+     '#title' => t('Visual Setup'),
    );
   
   $options = array(
     
-    'verde' => t('Verde'),
-    'cinza' => t('Cinza'),
-    'preto' => t('Preto'),
-    'azul'  => t('Azul')
+    'verde' => t('Green'),
+    'cinza' => t('Gray'),
+    'preto' => t('Black'),
+    'azul'  => t('Blue')
 
   );
   
   $form['barra_gov']['barra_gov_color'] = array(
       '#type' => 'select',
-      '#title' => t('Cor de Fundo'),
-      '#description' => t('Escolha uma das opções para cor de fundo da barra.'),
+      '#title' => t('Background color'),
+      '#description' => t('Choose one of the options for background color of the bar.'),
       '#options' => $options,
       '#required' => TRUE,
       '#default_value' => variable_get('barra_gov_color'),

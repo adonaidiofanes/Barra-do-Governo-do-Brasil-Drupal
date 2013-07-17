@@ -44,8 +44,8 @@ function barra_gov_page_build(&$page) {
  */
 function barra_gov_menu(){
   $items['admin/config/barra_gov'] = array(
-      'title' => 'Barra do Governo',
-      'description' => 'Ajusta as opções do modulo barra_gov',
+      'title' => 'Bar of the Government of Brazil',
+      'description' => 'Adjusts the module Bar of the Government of Brazil',
       'position' => 'right',
       'weight' => -5,
       'page callback' => 'system_admin_menu_block_page',
@@ -55,8 +55,8 @@ function barra_gov_menu(){
   );
   
   $items['admin/config/barra_gov/settings'] = array(
-      'title' => 'Configurações visuais',
-      'description' => 'Alterar o comportamento visual de Barra do Governo do Brasil',
+      'title' => 'Visual Setup',
+      'description' => 'Change the visual behavior of Barra Government of Brazil',
       'page callback' => 'drupal_get_form',
       'page arguments' => array('barra_gov_admin_settings'),
       'access arguments' => array('administer site configuration'),
