@@ -44,7 +44,7 @@ function barra_gov_page_build(&$page) {
 }
 
 /*
- * Implementação do hook_menu()
+ * Implements hook_menu()
  */
 function barra_gov_menu(){
   $items['admin/config/barra_gov'] = array(
