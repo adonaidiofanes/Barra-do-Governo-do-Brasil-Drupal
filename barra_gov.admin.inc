@@ -27,14 +27,14 @@ function barra_gov_admin_settings(){
 
   );
   
-  $form['barra_gov']['barra_gov_color'] = array(
-      '#type' => 'select',
-      '#title' => t('Background color'),
-      '#description' => t('Choose one of the options for background color of the bar.'),
-      '#options' => $options,
-      '#required' => TRUE,
-      '#default_value' => variable_get('barra_gov_color'),
-  );
+    $form['barra_gov']['barra_gov_color'] = array(
+        '#type' => 'select',
+        '#title' => t('Background color'),
+        '#description' => t('Choose one of the options for background color of the bar.'),
+        '#options' => $options,
+        '#required' => TRUE,
+        '#default_value' => variable_get('barra_gov_color'),
+    );
   
   $form['#submit'][] = 'barra_gov_admin_settings_submit';
   return system_settings_form($form);

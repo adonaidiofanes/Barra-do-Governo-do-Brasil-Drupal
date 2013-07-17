@@ -18,24 +18,28 @@ function barra_gov_enable(){
  */
 function barra_gov_page_build(&$page) {
   
-  $color = variable_get('barra_gov_color');
+  if (!path_is_admin(current_path())) {
   
-  drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-' . $color . '.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
+    $color = variable_get('barra_gov_color');
 
-  // Force to rebuild the sorting
-  $page['page_top']['#sorted'] = FALSE;
+    drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-' . $color . '.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
 
-  $page['page_top']['barra_gov'] = array(
-      '#markup' => '<!-- Barra do Governo  -->
-      <div id="barra-brasil">
-          <div class="barra">
-              <ul>
-                  <li><a href="http://www.acessoainformacao.gov.br" class="ai" title="Acesso à informação" target="_blank">www.sic.gov.br</a></li>
-                  <li><a href="http://www.brasil.gov.br" class="brasilgov" title="Portal de Estado do Brasil" target="_blank">www.brasil.gov.br</a></li>
-              </ul>
-          </div>
-      </div>',
-  );
+    // Force to rebuild the sorting
+    $page['page_top']['#sorted'] = FALSE;
+
+    $page['page_top']['barra_gov'] = array(
+        '#markup' => '<!-- Barra do Governo  -->
+        <div id="barra-brasil">
+            <div class="barra">
+                <ul>
+                    <li><a href="http://www.acessoainformacao.gov.br" class="ai" title="Acesso à informação" target="_blank">www.sic.gov.br</a></li>
+                    <li><a href="http://www.brasil.gov.br" class="brasilgov" title="Portal de Estado do Brasil" target="_blank">www.brasil.gov.br</a></li>
+                </ul>
+            </div>
+        </div>',
+    );
+  
+  }
     
 }
 
