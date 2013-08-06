@@ -1,13 +1,13 @@
 #barra-brasil {
     position:relative;
     overflow:hidden;
-    min-width:1000px;
+    min-width:300px;
     background: #00500F url(../images/barra-brasil-v3-bgx.png) center bottom no-repeat;
 }
 
 #barra-brasil .barra {
     display: block;
-    width: 960px;
+    width: auto;
     height:28px;
     margin: 0 auto;
     background: url(../images/barra-brasil-v3-bgx.gif) 0 bottom repeat-x;
@@ -24,8 +24,8 @@
 #barra-brasil .barra ul li {
     float: left;
     padding-left: 25px;
-    margin: 0; 
-    padding: 0; 
+    margin: 0;
+    padding: 0;
     list-style: none;
 }
 
