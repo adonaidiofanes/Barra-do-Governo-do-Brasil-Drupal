@@ -17,9 +17,9 @@ function barra_gov_enable(){
  * Implements hook_page_build().
  */
 function barra_gov_page_build(&$page) {
-  
+
   if (!path_is_admin(current_path())) {
-  
+
     $color = variable_get('barra_gov_color');
 
     drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-' . $color . '.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
@@ -38,16 +38,16 @@ function barra_gov_page_build(&$page) {
             </div>
         </div>',
     );
-  
+
   }
-    
+
 }
 
 /*
  * Implements hook_menu()
  */
 function barra_gov_menu(){
-  $items['admin/config/barra_gov'] = array(
+  $items['admin/config/user-interface/barra_gov'] = array(
       'title' => 'Bar of the Government of Brazil',
       'description' => 'Adjusts the module Bar of the Government of Brazil',
       'position' => 'right',
@@ -57,8 +57,8 @@ function barra_gov_menu(){
       'file' => 'system.admin.inc',
       'file path' => drupal_get_path('module','system'),
   );
-  
-  $items['admin/config/barra_gov/settings'] = array(
+
+  $items['admin/config/user-interface/barra_gov/settings'] = array(
       'title' => 'Visual Setup',
       'description' => 'Change the visual behavior of Barra Government of Brazil',
       'page callback' => 'drupal_get_form',
@@ -67,7 +67,7 @@ function barra_gov_menu(){
       'type' => MENU_NORMAL_ITEM,
       'file' => 'barra_gov.admin.inc',
   );
-  
-  return $items;  
+
+  return $items;
 }
 
