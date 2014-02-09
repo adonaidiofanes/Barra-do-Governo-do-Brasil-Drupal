@@ -1,2 +1,16 @@
-# Ignoring NetBeans' project folder
+# Ignoring files
+*~
+*.orig
+*.sublime-project
+*.sublime-projectcompletions
+*.sublime-workspace
+*.swo
+*.swp
+.buildpath
+.Drupal.sublime-projectcomplections
+.DS_Store
+.project
+.sass-cache
+.settings
+.svn
 nbproject
