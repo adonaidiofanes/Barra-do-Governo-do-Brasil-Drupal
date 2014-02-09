@@ -19,14 +19,3 @@ function barra_gov_uninstall(){
   cache_clear_all('variables', 'cache_bootstrap');
   
 }
-
-/*
-  $result = db_select('variable', 'v')
-    ->fields('v', array('name'))
-    ->condition('name', 'easy_social_%', '=')
-    ->execute();
-
-
-  foreach ($result as $row) {
-    variable_del($row->name);
-  }*/
