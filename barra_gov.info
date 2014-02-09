@@ -1,8 +1,5 @@
-name = Bar of the Government of Brazil
+name = Brazilian Goverment top bar.
 description = "This module provides the bar Identity of the Federal Government for use in Drupal sites of the Government of the Federative Republic of Brazil. <a href="http://epwg.governoeletronico.gov.br/barra/" target="_blank">More information</a>"
-package = Identity Brazilian Government
+package = Gov.Br
 core = 7.x
-files[] = barra_gov.module
-files[] = barra_gov.install
 configure = admin/config/barra_gov/settings
-version = "7.x-1"

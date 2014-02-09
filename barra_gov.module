@@ -1,73 +1,70 @@
 <?php
 /**
-* @file
-* Lets users add private annotations to nodes.
-*
-* Adds a text field when a node is displayed
-* so that authenticated users may make notes.
-*/
-
-/*
- * Implements hook_enable()
+ * @file
+ * Barra do Governo do Brasil - Brazilian Goverment top bar module.
  */
-function barra_gov_enable(){
-  drupal_set_message($message = t('The "Barra do Governo do Brasil"  module was successfully enabled.'), $type = 'status');
+
+/**
+ * Implements hook_menu().
+ */
+function barra_gov_menu() {
+
+  $items['admin/config/barra_gov'] = array(
+    'title' => "Brazilian Goverment's bar",
+    'description' => "Adjusts the module Brazilian Goverment's bar.",
+    'position' => 'right',
+    'weight' => -5,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('administer site configuration'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+  );
+
+  $items['admin/config/barra_gov/settings'] = array(
+    'title' => 'Visual Setup',
+    'description' => "Change the visual behavior of Brazilian Goverment's bar",
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('barra_gov_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'barra_gov.admin.inc',
+  );
+
+  return '$items';
 }
+
 /**
  * Implements hook_page_build().
  */
 function barra_gov_page_build(&$page) {
-  
+
   if (!path_is_admin(current_path())) {
-  
+
     $color = variable_get('barra_gov_color');
+    $basepath = drupal_get_path('module', 'barra_gov');
 
-    drupal_add_css(drupal_get_path('module', 'barra_gov') . '/css/style-' . $color . '.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
+    drupal_add_css($basepath . '/css/style-' . $color . '.css', array(
+      'group' => CSS_DEFAULT,
+      'every_page' => TRUE,
+    ));
 
-    // Force to rebuild the sorting
+    // Force to rebuild the sorting.
     $page['page_top']['#sorted'] = FALSE;
 
+    $markup = <<<MARKUP
+<!-- Barra do Governo  -->
+<div id="barra-brasil">
+  <div class="barra">
+    <ul>
+      <li><a href="http://www.acessoainformacao.gov.br" class="ai" title="Acesso à informação" target="_blank">www.sic.gov.br</a></li>
+      <li><a href="http://www.brasil.gov.br" class="brasilgov" title="Portal de Estado do Brasil" target="_blank">www.brasil.gov.br</a></li>
+    </ul>
+  </div>
+</div>
+MARKUP;
+
     $page['page_top']['barra_gov'] = array(
-        '#markup' => '<!-- Barra do Governo  -->
-        <div id="barra-brasil">
-            <div class="barra">
-                <ul>
-                    <li><a href="http://www.acessoainformacao.gov.br" class="ai" title="Acesso à informação" target="_blank">www.sic.gov.br</a></li>
-                    <li><a href="http://www.brasil.gov.br" class="brasilgov" title="Portal de Estado do Brasil" target="_blank">www.brasil.gov.br</a></li>
-                </ul>
-            </div>
-        </div>',
+      '#markup' => $markup,
     );
-  
   }
-    
 }
-
-/*
- * Implements hook_menu()
- */
-function barra_gov_menu(){
-  $items['admin/config/barra_gov'] = array(
-      'title' => 'Bar of the Government of Brazil',
-      'description' => 'Adjusts the module Bar of the Government of Brazil',
-      'position' => 'right',
-      'weight' => -5,
-      'page callback' => 'system_admin_menu_block_page',
-      'access arguments' => array('administer site configuration'),
-      'file' => 'system.admin.inc',
-      'file path' => drupal_get_path('module','system'),
-  );
-  
-  $items['admin/config/barra_gov/settings'] = array(
-      'title' => 'Visual Setup',
-      'description' => 'Change the visual behavior of Barra Government of Brazil',
-      'page callback' => 'drupal_get_form',
-      'page arguments' => array('barra_gov_admin_settings'),
-      'access arguments' => array('administer site configuration'),
-      'type' => MENU_NORMAL_ITEM,
-      'file' => 'barra_gov.admin.inc',
-  );
-  
-  return $items;  
-}
-
