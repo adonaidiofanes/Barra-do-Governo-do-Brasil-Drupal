@@ -1,21 +1,36 @@
 <?php
+/**
+ * @file
+ * Install functions for Barra do Governo do Brasil module.
+ */
 
 /**
-* Implements hook_install()
-*/
-function barra_gov_install(){
+ * Implements hook_install().
+ */
+function barra_gov_install() {
+
   variable_set('barra_gov_color', 'verde');
 }
 
 /**
-* Implements hook_uninstall()
-*/
-function barra_gov_uninstall(){
-  
-  watchdog('Barra do Governo do Brasil', "Uninstalling module and deleting fields");
-  
+ * Implements hook_enable().
+ */
+function barra_gov_enable() {
+
+  $message = t('The "Barra do Governo do Brasil"  module was successfully enabled.');
+  drupal_set_message($message, 'status');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function barra_gov_uninstall() {
+
+  // Logs the uninstall message.
+  watchdog('Barra do Governo do Brasil', 'Uninstalling module and deleting fields');
+
+  // Removes module's variables.
   variable_del('barra_gov_color');
-  
+
   cache_clear_all('variables', 'cache_bootstrap');
-  
 }
