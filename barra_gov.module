@@ -38,20 +38,23 @@ function barra_gov_menu() {
  */
 function barra_gov_page_build(&$page) {
 
-  if (!path_is_admin(current_path())) {
+  // Applies the bar only on non-administrative paths
+  if (path_is_admin(current_path())) {
+    return;
+  }
 
-    $color = variable_get('barra_gov_color');
-    $basepath = drupal_get_path('module', 'barra_gov');
+  $color = variable_get('barra_gov_color');
+  $basepath = drupal_get_path('module', 'barra_gov');
 
-    drupal_add_css($basepath . '/css/style-' . $color . '.css', array(
-      'group' => CSS_DEFAULT,
-      'every_page' => TRUE,
-    ));
+  drupal_add_css($basepath . '/css/style-' . $color . '.css', array(
+    'group' => CSS_DEFAULT,
+    'every_page' => TRUE,
+  ));
 
-    // Force to rebuild the sorting.
-    $page['page_top']['#sorted'] = FALSE;
+  // Force to rebuild the sorting.
+  $page['page_top']['#sorted'] = FALSE;
 
-    $markup = <<<MARKUP
+  $markup = <<<MARKUP
 <!-- Barra do Governo  -->
 <div id="barra-brasil">
   <div class="barra">
@@ -63,8 +66,7 @@ function barra_gov_page_build(&$page) {
 </div>
 MARKUP;
 
-    $page['page_top']['barra_gov'] = array(
-      '#markup' => $markup,
-    );
-  }
+  $page['page_top']['barra_gov'] = array(
+    '#markup' => $markup,
+  );
 }
