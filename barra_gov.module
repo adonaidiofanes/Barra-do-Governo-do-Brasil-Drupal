@@ -38,7 +38,7 @@ function barra_gov_menu() {
  */
 function barra_gov_page_build(&$page) {
 
-  // Applies the bar only on non-administrative paths
+  // Applies the bar only on non-administrative paths.
   if (path_is_admin(current_path())) {
     return;
   }
