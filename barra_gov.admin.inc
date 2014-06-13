@@ -14,39 +14,13 @@ function barra_gov_admin_settings() {
 
   $form['barra_gov'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Visual Setup'),
+    '#title' => t('Information about the electoral period'),
   );
 
-  $options = array(
-    'verde' => t('Green'),
-    'cinza' => t('Gray'),
-    'preto' => t('Black'),
-    'azul'  => t('Blue'),
+  $form['barra_gov']['information'] = array(
+    '#markup' => t('<p>The Secretariat of Social Communication of the Presidency-circular letter sent to all government departments indicating the conduits for the election period, including the use of the Federal Government brand.</p> <p>Please pay attention to the guidelines found in the link: <a target="_blank" href="http://www.secom.gov.br/orientacoes-gerais/normas-e-contratacoes/eleicoes-2014_/saiba-sobre-as-eleicoes-2014">http://www.secom.gov.br/orientacoes-gerais/normas-e-contratacoes/eleicoes-2014_/saiba-sobre-as-eleicoes-2014</a></p>')
   );
 
-  $form['barra_gov']['barra_gov_color'] = array(
-    '#type' => 'select',
-    '#title' => t('Background color'),
-    '#description' => t("Choose one of the options for the bar's background color."),
-    '#options' => $options,
-    '#required' => TRUE,
-    '#default_value' => variable_get('barra_gov_color'),
-  );
-
-  $form['#submit'][] = 'barra_gov_admin_settings_submit';
-
-  return system_settings_form($form);
-}
-
-/**
- * Submit function for barra_gov_admin_settings form.
- */
-function barra_gov_admin_settings_submit($form, $form_state) {
-
-  // Stores the color.
-  variable_set('barra_gov_color', $form['barra_gov']['barra_gov_color']['#value']);
-
-  drupal_set_message(t('The visual configuration was set to @color.', array(
-    '@color' => variable_get('barra_gov_color'),
-  )), 'status');
+   return system_settings_form($form);
+  
 }

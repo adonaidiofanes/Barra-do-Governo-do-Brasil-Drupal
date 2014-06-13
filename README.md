@@ -10,3 +10,6 @@ The bar serves to identify, standardize and integrate sites and portals of the F
 Its use is regulated by Normative Instruction No. 2 of 16 December 2009, which can be found on the website of the <a href="http://www.secom.gov.br/manuais-e-marca/internet" target="_blank">Secretariat of Social Communication of the Presidency - SECOM</a>.
 
 The implementation presented provides improvements to the code of the examples provided as reducing the amount of code; compliance and accessibility.
+
+Last updated: 06/13/2014 
+* Bar updated to standardize the electoral period.
