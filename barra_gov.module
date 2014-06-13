@@ -30,7 +30,7 @@ function barra_gov_menu() {
     'file' => 'barra_gov.admin.inc',
   );
 
-  return '$items';
+  return $items;
 }
 
 /**
